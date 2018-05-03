@@ -1,0 +1,8 @@
+<div *ngIf="friend" class="frienddetails" >
+    <h2>{{friend.name[0]|uppercase}}{{friend.name.substring(1)}} Details</h2>
+    <div><span>Id: </span>{{friend.id}}</div>
+    <div><span>Name: </span>{{friend.name}}</div>
+    <div><span>Hobbies: </span>{{friend.hobbies}}</div>
+    <div><span>Number: </span>{{friend.number}}</div>
+    <button (click)="goBack()">go back</button>
+  </div>

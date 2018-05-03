@@ -1,0 +1,29 @@
+ul li h2{
+    font-size:30px;
+    color:#933
+}
+
+ul li {
+    text-align: center;
+    text-decoration: none;
+}
+
+.friends{
+    width:50%;
+    float:left;
+}
+
+
+.selected-friend{
+    width:50%;
+    float:left;
+    color:#369;     
+}
+
+li.selected, ul li.selected h2{
+    color:#369;
+}
+
+input{
+    pointer-events: none;
+}

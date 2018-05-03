@@ -1,0 +1,48 @@
+<form class="example-form">
+  <div class="container">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+          <img style="vertical-align:middle;" aria-hidden src="{{state.flag}}" height="25" />
+          <span>{{ state.name }}</span> |
+          <small>Population: {{state.population}}</small>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <br />
+  <div class="container">
+    <mat-slide-toggle
+      [checked]="stateCtrl.disabled"
+      (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">
+      Disable Input?
+    </mat-slide-toggle>
+  </div>
+  <br />
+  <div class="container">
+    <mat-checkbox class="container">Check me!</mat-checkbox>
+  </div>
+  <div class="container">
+      <mat-form-field>
+          <input matInput  [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  </div>
+  <div class="container">
+    <mat-form-field>
+      <textarea matInput placeholder="heya comment something"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="container">
+      <mat-radio-group>
+          <mat-radio-button value="1">Option 1</mat-radio-button>
+          <mat-radio-button value="2">Option 2</mat-radio-button>
+        </mat-radio-group>
+  </div>
+  <div class="container">
+      <mat-slider></mat-slider>
+  </div>
+  </form>
+

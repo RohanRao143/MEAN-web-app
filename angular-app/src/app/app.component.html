@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar class="nav-bar" color="primary">
+    <span>Application Title</span>
+  
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+  
+    <span>Right Aligned Text</span>
+</mat-toolbar>
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+  <nav>
+    <a routerLink="/friends">Friends</a>
+    <a routerLink="/dashboard">Dashboard</a>
+  </nav>
+  </div>
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>

@@ -1,0 +1,17 @@
+<div class="friends">
+  <ul>
+    <li *ngFor="let friend of friends" routerLink="/detail/{{friend.id}}" [class.selected]="friend===selectedfriend">
+      <h2>{{friend.name[0] | uppercase}}{{friend.name.substring(1)}}</h2>
+      <p><span>Id: </span>{{friend.id}}</p>
+      <p><span>Name: </span>{{friend.name || 'No Name'}}</p>
+    
+      <h3>Change the name</h3>
+      <div>
+        <label>name:
+          <input [(ngModel)]="friend.name" placeholder="name">
+        </label>
+      </div>
+    </li>
+    </ul>
+</div>
+
