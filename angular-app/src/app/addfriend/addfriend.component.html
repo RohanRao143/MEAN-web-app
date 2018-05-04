@@ -1,0 +1,18 @@
+<form class="example-form">
+  <mat-form-field class="input">
+    <input matInput placeholder="Friend's Name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+  </mat-form-field><br/>
+  <mat-form-field class="input">
+    <input matInput placeholder="Number" [(ngModel)]="number" [ngModelOptions]="{standalone: true}">
+  </mat-form-field><br/>
+  <mat-form-field class="input col-80">
+    <input matInput placeholder="Hobbies" (keyup)="onKey($event)">
+  </mat-form-field>
+  <button mat-button (click)="addHobby($event)">Add</button>
+  <div class="hobbies">
+    <p *ngFor="let hobby of hobbies" class="hobby">{{hobby}}</p>
+  </div><br/>
+  <div class="submit">
+    <button mat-button (click)="addFriend()">Submit</button>
+  </div>
+</form>

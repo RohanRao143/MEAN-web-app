@@ -3,7 +3,7 @@ const Friend = require('../models/Friends');
 // fetches all friends
 
 exports.getFriends = (req,res)=>{
-    console.log('yeah there!')
+
     Friend.find({},(err,friends)=>{
         return res.status(200).send(friends)
     })
@@ -12,18 +12,20 @@ exports.getFriends = (req,res)=>{
 // creates a friend
 
 exports.createFriend = (req,res)=>{
-    Friend.find({name:req.body.name},(err,friend)=>{
-        if(friend.length){
-            return res.json({result:'friend already exists!'})
-        }
-        var friend = new Friend(req.body);
-        friend.save(err=>{
-            if(err){
-                return res.status(500).send(err); 
+    Friend.count({},function(err,count){
+        Friend.find({name:req.body.name},(err,friend)=>{
+            if(friend.length){
+                return res.json({result:'friend already exists!'})
             }
-            return res.status(200).send(friend)
-        })
-    }).limit(1)
+            var friend = new Friend({name:req.body.name,hobbies:req.body.hobbies,number:req.body.number,id:count+1});
+            friend.save(err=>{
+                if(err){
+                    return res.status(500).send(err); 
+                }
+                return res.status(200).send(friend)
+            })
+        }).limit(1)
+    })
 }
 
 // delete a friend by id

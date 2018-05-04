@@ -5,7 +5,7 @@ const friendSchema = new mongoose.Schema({
     name:String,
     hobbies:Array,
     number:Number
-});
+},{timestamps:true});
 
 const Friend = mongoose.model('Friend',friendSchema);
 

@@ -1,0 +1,28 @@
+.input{
+    width:40%;
+    padding:10px;
+    left:30%;
+}
+
+.hobbies{
+    display: block;
+    padding-left:30%;
+    padding-right: 30%
+
+}
+
+.hobby{
+    height:13px;
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #74b3ee;
+    cursor: pointer;
+    display:inline-block;
+    border-radius: 5px;
+    margin:5px 5px 5px 5px;
+}
+.col-80{
+    width:33%;
+    margin-right: 31%;
+}

@@ -21,6 +21,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { ModalsComponent } from './modals/modals.component';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { AddfriendComponent } from './addfriend/addfriend.component';
 
 
 
@@ -35,7 +36,8 @@ import { InMemoryDataService }  from './in-memory-data.service';
     NavigationComponent,
     LayoutComponent,
     ButtonsComponent,
-    ModalsComponent
+    ModalsComponent,
+    AddfriendComponent
   ],
   imports: [
     BrowserModule,

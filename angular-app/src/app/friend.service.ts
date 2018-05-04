@@ -23,10 +23,31 @@ export class FriendService {
   }
 
   getFriend(id: number): Observable<Friend[]> {
+    
     // TODO: send the message _after_ fetching the friend
     this.messageService.add(`FriendService: fetched friend id=${id}`);
+    
     //return of(Friends.find(friend => friend.id === id));
     return this.http.get<Friend[]>(this.friendsUrl)
+  }
+
+  addFriend(data){
+
+    //Headers has to be set inorder to pass the data to backend for the post services.
+    let header=new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+    
+    this.http.post('node_api/addfriend', data, {headers:header}).subscribe(
+      (val) => {
+          console.log("POST call successful value returned in body", 
+                      val);
+      },
+      response => {
+          console.log("POST call in error", response);
+      },
+      () => {
+          console.log("The POST observable is now completed.");
+      });
+
   }
 
   private log(message: string) {

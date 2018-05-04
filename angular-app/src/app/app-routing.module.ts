@@ -9,6 +9,7 @@ import { NavigationComponent } from './navigation/navigation.component'
 import { LayoutComponent } from './layout/layout.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { ModalsComponent } from './modals/modals.component';
+import { AddfriendComponent } from './addfriend/addfriend.component';
 
 const routes:Routes = [
   {path:'friends',component:FriendsComponent },
@@ -20,6 +21,7 @@ const routes:Routes = [
   { path:'layout' , component:LayoutComponent },
   { path:'buttons', component:ButtonsComponent },
   {path:'modals', component:ModalsComponent},
+  {path:'addfriend',component:AddfriendComponent},
 ]
 
 @NgModule({
