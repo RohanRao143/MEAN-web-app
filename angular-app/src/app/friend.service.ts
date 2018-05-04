@@ -8,6 +8,7 @@ import { Friend } from './friend';
 // import {Friends} from './mock-friends';
 import { MessageService } from './message.service';
 
+//injectable decorators are used to inject themself to other services
 @Injectable()
 export class FriendService {
 
