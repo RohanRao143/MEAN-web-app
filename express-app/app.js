@@ -6,7 +6,15 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var  chalk = require('chalk');
 var dotenv = require('dotenv');
+var pretty = require('express-prettify');
+var bodyParser = require('body-parser');
 
+var app = express();
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 const cors = require('cors');
 
 var corsOptions = {
@@ -27,7 +35,6 @@ var indexRouter = require('./routes/index');
 
 dotenv.load({path:'.env.example'})
 
-var app = express();
 
 /**
  * Connect to MongoDB
@@ -45,6 +52,7 @@ mongoose.connection.on('error', (err) => {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -52,11 +60,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use(cors(corsOptions));
 
+/**
+ * used to prettify responses
+ */
+
+app.use(pretty({ query: 'pretty' }));
+
 // Add headers
 app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4201');
 
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');

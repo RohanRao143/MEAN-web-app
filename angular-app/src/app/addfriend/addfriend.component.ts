@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FriendService } from '../friend.service';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import {Location} from '@angular/common';
+import {Router} from '@angular/router';
+
+
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 
@@ -17,7 +21,7 @@ export class AddfriendComponent implements OnInit {
 
   hobbies = []
 
-  constructor(private friendService:FriendService ,private http:HttpClient) { }
+  constructor(private friendService:FriendService ,private http:HttpClient, private location:Location, public router:Router) { }
 
   ngOnInit() {
   }
@@ -33,8 +37,8 @@ export class AddfriendComponent implements OnInit {
   }
 
   addFriend(){
-    this.friendService.addFriend({name:this.name,number:this.number,hobbies:this.hobbies})
-
+    this.friendService.addFriend({name:this.name,number:this.number,hobbies:this.hobbies});
+    this.router.navigateByUrl('/dashboard');
   }
 
 }

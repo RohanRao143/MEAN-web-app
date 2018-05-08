@@ -6,9 +6,9 @@
     <input matInput placeholder="Number" [(ngModel)]="number" [ngModelOptions]="{standalone: true}">
   </mat-form-field><br/>
   <mat-form-field class="input col-80">
-    <input matInput placeholder="Hobbies" (keyup)="onKey($event)">
+    <input matInput placeholder="Hobbies" #hobbi (keyup)="onKey($event)">
   </mat-form-field>
-  <button mat-button (click)="addHobby($event)">Add</button>
+  <button mat-button (click)="addHobby($event); hobbi.value='';">Add</button>
   <div class="hobbies">
     <p *ngFor="let hobby of hobbies" class="hobby">{{hobby}}</p>
   </div><br/>

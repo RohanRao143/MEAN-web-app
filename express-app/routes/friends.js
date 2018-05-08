@@ -12,17 +12,26 @@ exports.getFriends = (req,res)=>{
 // creates a friend
 
 exports.createFriend = (req,res)=>{
+    console.log(req.body);
     Friend.count({},function(err,count){
         Friend.find({name:req.body.name},(err,friend)=>{
             if(friend.length){
                 return res.json({result:'friend already exists!'})
             }
-            var friend = new Friend({name:req.body.name,hobbies:req.body.hobbies,number:req.body.number,id:count+1});
-            friend.save(err=>{
+            // var friend = new Friend({name:req.body.name,hobbies:req.body.hobbies,number:req.body.number,id:count+1});
+            // friend.save(err=>{
+            //     if(err){
+            //         return res.status(500).send(err); 
+            //     }
+            //     return res.status(200).send(friend)
+            // })
+            Friend.create({name:req.body.name,hobbies:req.body.hobbies,number:req.body.number,id:count+1},function(err,data){
                 if(err){
+                    console.log(err)
                     return res.status(500).send(err); 
-                }
-                return res.status(200).send(friend)
+                        }
+                        console.log(data)
+                    return res.status(200).send(data);
             })
         }).limit(1)
     })
@@ -33,7 +42,7 @@ exports.createFriend = (req,res)=>{
 exports.deleteFriend = (req,res)=>{
     Friend.findOneAndRemove({id:req.params.id},(err,friend)=>{
         if(err){
-            res.status(500).send('deletion process si unsuccessfull');
+            res.status(500).send('deletion process is unsuccessfull');
         }
         return res.status(200).send('Succesfully deleted.')             
     })

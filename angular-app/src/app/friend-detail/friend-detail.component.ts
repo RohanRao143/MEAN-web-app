@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router  } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Friend } from '../friend';
@@ -29,6 +29,10 @@ export class FriendDetailComponent implements OnInit {
     this.friendService.getFriends().subscribe(friends=>{
       this.friend = friends.find(friend=>friend.id==id)
     });
+  }
+
+  deleteFriend(id){
+    this.friendService.deleteFriend(id);
   }
 
   goBack(): void {
