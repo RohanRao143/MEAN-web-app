@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+
 var  chalk = require('chalk');
 var dotenv = require('dotenv');
 var pretty = require('express-prettify');
@@ -18,7 +19,7 @@ app.use(bodyParser.json())
 const cors = require('cors');
 
 var corsOptions = {
-  origin: 'http://example.com',
+  origin: 'http://localhost:4201',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
 
